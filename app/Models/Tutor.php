@@ -16,7 +16,10 @@ class Tutor extends Model
     "APELLIDOTUTOR",
     "FECHANACIMIENTOTUTOR",
     "CELULARTUTOR",
-    "GENEROTUTOR"
+    "GENEROTUTOR",
+    "CORREO",
+    "OCUPACION",
+    "RELACION"
     ];
     public $incrementing = false;
     protected $keyType = 'string';

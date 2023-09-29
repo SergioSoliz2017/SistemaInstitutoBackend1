@@ -20,7 +20,10 @@ class Estudiante extends Model
     "COLEGIO",
     "TURNO",
     "CURSO",
-    "TIPOCOLEGIO"
+    "TIPOCOLEGIO",
+    "PAIS",
+    "DEPARTAMENTO",
+    "CIUDAD",
     ];
     public $incrementing = false;
     protected $keyType = 'string';

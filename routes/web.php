@@ -20,6 +20,11 @@ Route::get('/',function(){
 Route::post('/agregarEstudiante',[App\Http\Controllers\EstudianteController::class,"agregarEstudiante"]);
 Route::post('/agregarTutor',[App\Http\Controllers\TutorController::class,"agregarTutor"]);
 Route::post('/asignar-tutor', [App\Http\Controllers\AsignarTutorController::class,"asignarTutor"]);
+Route::post('/agregarRegistro',[App\Http\Controllers\RegistroController::class,"agregarRegistro"]);
 
-Route::get('/obtenerTodo',[App\Http\Controllers\EstudianteController::class,"show"]);
+Route::get('/obtenerEstudiantes',[App\Http\Controllers\EstudianteController::class,"show"]);
 Route::get('/obtenerTutor/{id}', [App\Http\Controllers\TutorController::class,"buscarTutor"]);
+Route::get('/obtenerEstudiante/{id}',[App\Http\Controllers\EstudianteController::class,"buscarEstudiante"]);
+Route::get('/obtenerTutores',[App\Http\Controllers\TutorController::class,"show"]);
+
+Route::put('/actualizarEstudiante/{id}', [App\Http\Controllers\EstudianteController::class,"update"]);
