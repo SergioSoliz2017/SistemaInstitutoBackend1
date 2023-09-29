@@ -24,6 +24,7 @@ class Estudiante extends Model
     "PAIS",
     "DEPARTAMENTO",
     "CIUDAD",
+    "HABILITADO"
     ];
     public $incrementing = false;
     protected $keyType = 'string';
@@ -31,6 +32,6 @@ class Estudiante extends Model
 
     public function tutores()
     {
-        return $this->belongsToMany(Tutor::class, 'relationship_1', 'CODESTUDIANTE', 'CODTUTOR');
+        return $this->belongsToMany(Tutor::class, 'estudiantetutor', 'CODESTUDIANTE', 'CODTUTOR');
     }
 }

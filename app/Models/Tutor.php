@@ -19,13 +19,14 @@ class Tutor extends Model
     "GENEROTUTOR",
     "CORREO",
     "OCUPACION",
-    "RELACION"
+    "RELACION",
+    "ESTADO"
     ];
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
     public function estudiantes()
     {
-        return $this->belongsToMany(Estudiante::class, 'relationship_1', 'CODTUTOR', 'CODESTUDIANTE');
+        return $this->belongsToMany(Estudiante::class, 'estudiantetutor', 'CODTUTOR', 'CODESTUDIANTE');
     }
 }

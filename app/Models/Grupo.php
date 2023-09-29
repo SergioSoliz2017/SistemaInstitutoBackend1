@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Registro extends Model
+class Grupo extends Model
 {
     use HasFactory;
-    protected $table="registro";
-    protected $primaryKey="CODINSCRIPCION";
+    protected $table="grupo";
     protected $fillable = [
-    "CODTRABAJADOR",
-    "FECHAINSCRIPCION",
-    "COSTOINSCRIPCION"];
+    "CODCURSO",
+    "NOMBREGRUPO",
+    "CANTIDADMAXIMA",];
 
     public $timestamps = false;
 }

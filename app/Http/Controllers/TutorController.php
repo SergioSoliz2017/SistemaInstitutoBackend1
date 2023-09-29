@@ -19,6 +19,7 @@ class TutorController extends Controller
         $tutor->CORREO = $request -> CORREO;
         $tutor->OCUPACION = $request -> OCUPACION;
         $tutor->RELACION = $request -> RELACION;
+        $tutor->ESTADO = $request -> ESTADO;
         $tutor->save();
     }
 
@@ -29,5 +30,16 @@ class TutorController extends Controller
     public function show()
     {
         return Tutor::get();
+    }
+
+    public function actualizarDato(Request $request,$id) {
+
+        $tutor = Tutor::find($id);
+        if ($tutor) {
+            $tutor->update(['ESTADO' => $request->ESTADO]);
+            return response()->json(['mensaje' => 'Dato actualizado correctamente']);
+        } else {
+            return response()->json(['mensaje' => 'Registro no encontrado'], 404);
+        }
     }
 }

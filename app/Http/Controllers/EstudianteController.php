@@ -24,6 +24,7 @@ class EstudianteController extends Controller
         $estudiante->PAIS = $request -> PAIS;
         $estudiante->DEPARTAMENTO = $request -> DEPARTAMENTO;
         $estudiante->CIUDAD = $request -> CIUDAD;
+        $estudiante->HABILITADO = $request -> HABILITADO;
         $estudiante->save();
     }
 

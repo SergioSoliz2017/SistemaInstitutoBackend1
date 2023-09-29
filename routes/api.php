@@ -17,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('/agregarEstudiante',[App\Http\Controllers\EstudianteController::class,"agregarEstudiante"]);
 Route::post('/agregarTutor',[App\Http\Controllers\TutorController::class,"agregarTutor"]);
-Route::post('/agregarEstudianteTutor',[App\Http\Controllers\TutorController::class,"asignarTutor"]);
+Route::post('/asignar-tutor', [App\Http\Controllers\AsignarTutorController::class,"asignarTutor"]);
+Route::post('/agregarRegistro',[App\Http\Controllers\RegistroController::class,"agregarRegistro"]);
 
-Route::get('/obtenerTodo',[App\Http\Controllers\EstudianteController::class,"show"]);
+Route::get('/obtenerEstudiantes',[App\Http\Controllers\EstudianteController::class,"show"]);
+Route::get('/obtenerTutor/{id}', [App\Http\Controllers\TutorController::class,"buscarTutor"]);
+Route::get('/obtenerEstudiante/{id}',[App\Http\Controllers\EstudianteController::class,"buscarEstudiante"]);
+Route::get('/obtenerTutores',[App\Http\Controllers\TutorController::class,"show"]);
+Route::get('/obtenerCursos',[App\Http\Controllers\CursoController::class,"show"]);
 
+Route::put('/actualizarEstudiante/{id}', [App\Http\Controllers\EstudianteController::class,"update"]);
