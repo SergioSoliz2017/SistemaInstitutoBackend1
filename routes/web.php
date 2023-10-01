@@ -34,6 +34,9 @@ Route::get('/obtenerCursos',[App\Http\Controllers\CursoController::class,"show"]
 Route::get('/obtenerCurso/{id}',[App\Http\Controllers\CursoController::class,"buscarCurso"]);
 Route::get('/obtenerGrupo/{id}',[App\Http\Controllers\GrupoController::class,"buscarGrupo"]);
 Route::get('/obtenerGrupoNombre/{id}',[App\Http\Controllers\GrupoController::class,"buscarGrupoNombre"]);
+Route::get('/darBajaTutor/{id}',[App\Http\Controllers\TutorController::class,"darBajaTutor"]);
+Route::get('/darActivoTutor/{id}',[App\Http\Controllers\TutorController::class,"darActivoTutor"]);
+Route::get('/darInactivoTutor/{id}',[App\Http\Controllers\TutorController::class,"darInactivoTutor"]);
 
 Route::put('/actualizarEstudiante/{id}', [App\Http\Controllers\EstudianteController::class,"update"]);
 Route::put('/acutalizarEstadoTutor/{id}', [App\Http\Controllers\TutorController::class,"actualizarDato"]);

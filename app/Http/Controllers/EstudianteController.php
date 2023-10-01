@@ -52,4 +52,11 @@ class EstudianteController extends Controller
         $estudiante->CIUDAD = $request -> CIUDAD;
         $estudiante->save();
     }
+    public function obtenerTutorDelEstudiante($id)
+    {
+        $estudiante = Estudiante::find($id);
+        $tutores = $estudiante->tutores;
+        
+        return $tutores;
+    }
 }

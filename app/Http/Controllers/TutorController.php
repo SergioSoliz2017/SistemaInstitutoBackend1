@@ -42,4 +42,69 @@ class TutorController extends Controller
             return response()->json(['mensaje' => 'Registro no encontrado'], 404);
         }
     }
+
+    public function darBajaTutor($id)
+    {
+        $tutor = Tutor::find($id);
+        $estudiantes = $tutor->estudiantes;
+        $lista = array();
+        foreach ($estudiantes as $estudiante) {
+            if ($estudiante->tutores->count() === 1) {
+                array_push($lista,$estudiante);
+            }else{
+                $numeroDeTutoresActivos = $estudiante->tutores()->where('ESTADO', 'Activo')->count();
+                if ($numeroDeTutoresActivos == 1) {
+                    array_push($lista,$estudiante);
+                }
+            }
+            }
+        $tutor->update(['ESTADO' => "Baja"]);
+        foreach ($lista as $estudiante) {
+            $estudiante->update(['HABILITADO' => "Deshabilitado"]);
+        }
+        return $lista ;
+    }
+
+    public function darActivoTutor($id)
+    {
+        $tutor = Tutor::find($id);
+        $estudiantes = $tutor->estudiantes;
+        $lista = array();
+        foreach ($estudiantes as $estudiante) {
+            if ($estudiante->tutores->count() === 1) {
+                array_push($lista,$estudiante);
+            }else{
+                $numeroDeTutoresActivos = $estudiante->tutores()->where('ESTADO', 'Activo')->count();
+                if ($numeroDeTutoresActivos == 1) {
+                    array_push($lista,$estudiante);
+                }
+            }
+            }
+        $tutor->update(['ESTADO' => "Activo"]);
+        foreach ($lista as $estudiante) {
+            $estudiante->update(['HABILITADO' => "Habilitado"]);
+        }
+        return $lista ;
+    }
+    public function darInactivoTutor($id)
+    {
+        $tutor = Tutor::find($id);
+        $estudiantes = $tutor->estudiantes;
+        $lista = array();
+        foreach ($estudiantes as $estudiante) {
+            if ($estudiante->tutores->count() === 1) {
+                array_push($lista,$estudiante);
+            }else{
+                $numeroDeTutoresActivos = $estudiante->tutores()->where('ESTADO', 'Activo')->count();
+                if ($numeroDeTutoresActivos == 1) {
+                    array_push($lista,$estudiante);
+                }
+            }
+            }
+        $tutor->update(['ESTADO' => "Inactivo"]);
+        foreach ($lista as $estudiante) {
+            $estudiante->update(['HABILITADO' => "Inactivo"]);
+        }
+        return $lista ;
+    }
 }
